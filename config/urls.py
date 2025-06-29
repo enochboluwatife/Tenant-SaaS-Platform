@@ -36,20 +36,11 @@ urlpatterns = [
     # API endpoints
     path('api/', include(router.urls)),
     
-    # Authentication endpoints
-    path('api/auth/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/auth/token/refresh/', CustomTokenRefreshView.as_view(), name='token_refresh'),
-    path('api/auth/token/revoke/', revoke_token, name='token_revoke'),
-    path('api/auth/login/', LoginView.as_view(), name='login'),
-    path('api/auth/logout/', LogoutView.as_view(), name='logout'),
-    path('api/auth/register/', RegisterView.as_view(), name='register'),
-    path('api/auth/password/change/', PasswordChangeView.as_view(), name='password_change'),
-    path('api/auth/password/reset/', PasswordResetView.as_view(), name='password_reset'),
-    path('api/auth/password/reset/confirm/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    path('api/auth/profile/', UserProfileView.as_view(), name='profile'),
+    # Authentication endpoints (stub for namespace)
+    path('api/auth/', include(('apps.authentication.urls', 'auth'), namespace='auth')),
     
-    # Include app-specific URLs
-    path('api/integrations/', include('apps.integrations.urls')),
+    # Integrations endpoints with namespace
+    path('api/integrations/', include(('apps.integrations.urls', 'integrations'), namespace='integrations')),
     
     # Health check endpoint
     path('health/', lambda request: HttpResponse('OK'), name='health'),
