@@ -1,0 +1,22 @@
+Django>=5.2
+psycopg2-binary>=2.9
+# For REST API
+ djangorestframework>=3.15
+# JWT Auth
+ djangorestframework-simplejwt>=5.3
+# For async tasks (Celery)
+ celery>=5.3
+redis>=5.0
+# For CORS
+ django-cors-headers>=4.3
+# For environment variables
+ python-dotenv>=1.0
+# For testing
+ pytest-django>=4.8
+# For filtering
+ django-filter>=23.0
+# For API documentation
+ coreapi>=2.3
+# For SAML/OIDC SSO (bonus)
+ python3-saml>=1.16
+ mozilla-django-oidc>=4.0
